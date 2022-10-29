@@ -1,7 +1,5 @@
 import { Spinner } from "./styles";
 
-export function Loading(){
-    return(
-        <Spinner />
-    );
+export function Loading() {
+  return <Spinner />;
 }

@@ -31,8 +31,10 @@ const Logo = styled.img`
 `;
 
 const Limit = styled.select`
-  width: 5rem;
+  width: 3rem;
   outline: none;
+  text-align: center;
+  margin-left: 5px;
 `;
 const WrapperTitle = styled.div`
   display: flex;

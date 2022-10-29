@@ -7,7 +7,7 @@ const rotate = keyframes`
     to{
         transform: rotate(360deg);
     }
-    `;
+`;
 
 const Spinner = styled.div`
   width: 50px;
