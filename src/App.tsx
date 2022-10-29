@@ -1,53 +1,60 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Comic } from "./components/Comic";
-import { Container } from "./styles/main";
+import { AllComics } from "./components/AllComics";
+import { options } from "./utils/options";
+import Lottie from "lottie-react";
+import heroes from "./assets/heroes.json";
+import {
+  Header,
+  Limit,
+  LimitArea,
+  Logo,
+  Option,
+  Title,
+  TitleSelect,
+  WrapperTitle,
+} from "./styles/main";
+import { Loading } from "./components/Loading";
 
-interface ComicProps {
-  id: string;
-  title: string;
-  description: string;
-  thumbnail: {
-    path: string;
-    extension: string;
-  };
-}
 function App() {
-  const [comics, setComics] = useState<ComicProps[]>([]);
-
-  async function getData() {
-    try {
-      const allComics = await axios.get(
-        `http://gateway.marvel.com/v1/public/comics?ts=1&apikey=${
-          import.meta.env.VITE_PUBLIC_KEY
-        }&hash=${import.meta.env.VITE_HASH}`
-      );
-      setComics(allComics?.data?.data?.results);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const [limit, setLimit] = useState("20");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getData();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2200);
   }, []);
   return (
-    <Container>
-      {comics.map(({ id, title, thumbnail }) => {
-        const imageIsNotAvailable = !thumbnail.path.includes(
-          "image_not_available"
-        );
-        if (imageIsNotAvailable) {
-          return (
-            <Comic
-              key={id}
-              src={thumbnail.path + "." + thumbnail.extension}
-              title={title}
-            />
-          );
-        }
-      })}
-    </Container>
+    <>
+      <Header>
+        <Logo src="/logo.png" alt="Logo Marvel" />
+        <Lottie animationData={heroes} loop={true} id="hero" />
+      </Header>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <WrapperTitle>
+            <Title>Welcome, comics lover!</Title>
+            <LimitArea>
+              <TitleSelect htmlFor="limit">Quantity of comics:</TitleSelect>
+              <Limit
+                onChange={(event) => {
+                  setLimit(event.target.value);
+                }}
+                value={limit}
+                id="limit"
+              >
+                {options.map((option) => (
+                  <Option key={option}>{option}</Option>
+                ))}
+              </Limit>
+            </LimitArea>
+          </WrapperTitle>
+          <AllComics limit={limit} />
+        </>
+      )}
+    </>
   );
 }
 
