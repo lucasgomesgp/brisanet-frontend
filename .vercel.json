@@ -1,0 +1,13 @@
+{
+    "headers": [
+        {
+            "source": "/v1/public/comics/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                }
+            ]
+        }
+    ]
+}
