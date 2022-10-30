@@ -22,7 +22,7 @@ import { MagnifyingGlass, XCircle } from "phosphor-react";
 function App() {
   const [limit, setLimit] = useState("20");
   const [isLoading, setIsLoading] = useState(true);
-  const [inputSearchIsOpen, setInputSearchIsOpen] = useState(false);
+  const [inputSearchIsOpen, setInputSearchIsOpen] = useState(true);
   const [heroChoosed, setHeroChoosed] = useState("");
 
   useEffect(() => {

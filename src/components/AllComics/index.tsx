@@ -43,7 +43,7 @@ export function AllComics({ limit, hero = "" }: Props) {
   return (
     <Container>
       {comics.length > 0 ? (
-        comics.map(({ id, title, thumbnail }) => {
+        comics.map(({ id, title, thumbnail, description }) => {
           const imageIsNotAvailable = !thumbnail.path.includes(
             "image_not_available"
           );
@@ -53,6 +53,7 @@ export function AllComics({ limit, hero = "" }: Props) {
                 key={id}
                 src={thumbnail.path + "." + thumbnail.extension}
                 title={title}
+                description={description}
               />
             );
           }

@@ -19,7 +19,7 @@ const Header = styled.header`
   height: 4rem;
   width: 100%;
   background-color: #f0141e;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 
   #hero {
     max-width: 30rem;
@@ -55,7 +55,9 @@ const SearchArea = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 1rem;
+  margin-bottom: 2rem;
 `;
 
 const Search = styled.div<InptSearchProps>`
@@ -88,7 +90,6 @@ const Search = styled.div<InptSearchProps>`
 
 const InptHero = styled.input`
   width: 0;
-  background: transparent;
   outline: none;
   border: none;
   transition: all 0.5s;
@@ -101,6 +102,7 @@ const NoDataText = styled.p`
   color: #ffffff;
   margin-top: 4rem;
 `;
+
 export {
   Header,
   Logo,
@@ -113,5 +115,5 @@ export {
   InptHero,
   LimitArea,
   TitleSelect,
-  NoDataText
+  NoDataText,
 };
