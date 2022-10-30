@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { getComicsData } from "../../services/getComicsData";
 import { NoDataText } from "../../styles/main";
 import { Comic } from "../Comic";
 import { Container } from "./styles";
@@ -22,15 +23,8 @@ export function AllComics({ limit, hero = "" }: Props) {
   const [comics, setComics] = useState<ComicProps[]>([]);
   async function getData() {
     try {
-      let url = `http://gateway.marvel.com/v1/public/comics?ts=1&apikey=${
-        import.meta.env.VITE_PUBLIC_KEY
-      }&hash=${import.meta.env.VITE_HASH}&limit=${limit}`;
-      if (hero) {
-        url = url.concat(`&titleStartsWith=${hero}`);
-      }
-      const {
-        data: { data },
-      } = await axios.get(url);
+      const data = await getComicsData(hero, limit);
+      console.log(data)
       setComics(data?.results);
     } catch (error) {
       console.log(error);
