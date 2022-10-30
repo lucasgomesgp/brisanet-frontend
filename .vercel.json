@@ -1,7 +1,7 @@
 {
     "headers": [
         {
-            "source": "/comics/(.*)",
+            "source": "/v1/public/(.*)",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Credentials",
