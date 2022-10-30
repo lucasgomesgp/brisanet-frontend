@@ -1,4 +1,8 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+interface InptSearchProps {
+  isOpen: boolean;
+}
 
 const heroMove = keyframes`
   from{
@@ -17,7 +21,7 @@ const Header = styled.header`
   background-color: #f0141e;
   margin-bottom: 3rem;
 
-  #hero{
+  #hero {
     max-width: 30rem;
     margin: 0 auto;
     animation: ${heroMove} 3s ease-in-out forwards;
@@ -46,10 +50,57 @@ const WrapperTitle = styled.div`
 const Title = styled.h1`
   padding-bottom: 1rem;
 `;
+
+const SearchArea = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+`;
+
+const Search = styled.div<InptSearchProps>`
+  position: relative;
+
+  #searchBtn,
+  #closeBtn {
+    cursor: pointer;
+    position: absolute;
+  }
+  #closeBtn {
+    right: 5px;
+    top: 5px;
+  }
+  ${({ isOpen }) => {
+    if (isOpen) {
+      return css`
+        input {
+          width: 10rem;
+          border: 0.5px solid #fff;
+          padding: 0.5rem;
+          color: #fff;
+          border-radius: 20px;
+          font-family: "Inter", sans-serif;
+        }
+      `;
+    }
+  }}
+`;
+
+const InptHero = styled.input`
+  width: 0;
+  background: transparent;
+  outline: none;
+  border: none;
+  transition: all 0.5s;
+`;
+
 const LimitArea = styled.div``;
 const TitleSelect = styled.label``;
 const Option = styled.option``;
-
+const NoDataText = styled.p`
+  color: #ffffff;
+  margin-top: 4rem;
+`;
 export {
   Header,
   Logo,
@@ -57,6 +108,10 @@ export {
   Option,
   WrapperTitle,
   Title,
+  SearchArea,
+  Search,
+  InptHero,
   LimitArea,
   TitleSelect,
+  NoDataText
 };
