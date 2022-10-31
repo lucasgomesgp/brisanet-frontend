@@ -59,6 +59,12 @@ const Title = styled.p`
   text-align: center;
   word-break: break-all;
   height: 4rem;
+  transition: all 0.2s;
+
+  :hover{
+    color: red;
+    cursor: pointer;
+  }
 `;
 
 const Description = styled.p`
