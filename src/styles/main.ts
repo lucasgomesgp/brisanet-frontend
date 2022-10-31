@@ -79,9 +79,9 @@ const Search = styled.div<InptSearchProps>`
           width: 10rem;
           border: 0.5px solid #fff;
           padding: 0.5rem;
-          color: #fff;
           border-radius: 20px;
           font-family: "Inter", sans-serif;
+          color: #000000;
         }
       `;
     }
@@ -93,6 +93,10 @@ const InptHero = styled.input`
   outline: none;
   border: none;
   transition: all 0.5s;
+
+  ::placeholder {
+    color: #000000;
+  }
 `;
 
 const LimitArea = styled.div``;

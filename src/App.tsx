@@ -85,7 +85,7 @@ function App() {
                       setHeroChoosed(e.target.value);
                     }}
                     value={heroChoosed}
-                    />
+                  />
                 </Search>
               </SearchArea>
             </LimitArea>

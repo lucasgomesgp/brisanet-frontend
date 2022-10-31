@@ -5,6 +5,7 @@ import {
   Description,
   FlipperCard,
   BackInfo,
+  BtnMoreInfo,
 } from "./styles";
 
 interface Props {
@@ -21,6 +22,7 @@ export function Comic({ src, title, description }: Props) {
         <BackInfo>
           <Title>{title}</Title>
           <Description>{description}</Description>
+          <BtnMoreInfo>More info</BtnMoreInfo>
         </BackInfo>
       </FlipperCard>
     </Container>

@@ -6,7 +6,7 @@ const Container = styled.div`
   perspective: 1000px;
   background-color: transparent;
 
-  :hover #flipper{
+  :hover #flipper {
     transform: rotateY(180deg);
   }
 `;
@@ -35,10 +35,10 @@ const BackInfo = styled.div`
   transform: rotateY(180deg);
   overflow-y: scroll;
 
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     width: 2px;
   }
-  ::-webkit-scrollbar-thumb{
+  ::-webkit-scrollbar-thumb {
     background-color: red;
   }
 `;
@@ -61,7 +61,7 @@ const Title = styled.p`
   height: 4rem;
   transition: all 0.2s;
 
-  :hover{
+  :hover {
     color: red;
     cursor: pointer;
   }
@@ -74,4 +74,19 @@ const Description = styled.p`
   max-width: 80%;
 `;
 
-export { Container, FlipperCard, BackInfo, Image, Title, Description };
+const BtnMoreInfo = styled.button`
+  padding: 0.5rem;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 0.2rem;
+`;
+
+export {
+  Container,
+  FlipperCard,
+  BackInfo,
+  Image,
+  Title,
+  Description,
+  BtnMoreInfo,
+};
