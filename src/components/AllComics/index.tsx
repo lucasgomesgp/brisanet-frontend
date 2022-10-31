@@ -24,7 +24,6 @@ export function AllComics({ limit, hero = "" }: Props) {
   async function getData() {
     try {
       const data = await getComicsData(hero, limit);
-      console.log(data)
       setComics(data?.results);
     } catch (error) {
       console.log(error);
@@ -36,7 +35,7 @@ export function AllComics({ limit, hero = "" }: Props) {
   }, [limit, hero]);
   return (
     <Container>
-      {comics.length > 0 ? (
+      {comics?.length > 0 ? (
         comics.map(({ id, title, thumbnail, description }) => {
           const imageIsNotAvailable = !thumbnail.path.includes(
             "image_not_available"
